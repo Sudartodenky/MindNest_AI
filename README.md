@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+🌿 MindNest AI - Sikat Pikiran
+MindNest AI adalah aplikasi jurnal berbasis AI yang dirancang untuk membantu pengguna mengelola kesehatan mental melalui fitur "Sikat Pikiran". Aplikasi ini memungkinkan pengguna untuk menuangkan beban pikiran dan mendapatkan respon yang menenangkan serta reflektif dari AI.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✨ Fitur Utama
+Sikat Pikiran (AI Journaling): Fitur chat interaktif untuk refleksi diri yang didukung oleh Google Gemini API melalui n8n.
+Mood Tracker Dashboard: Visualisasi pola mood harian menggunakan grafik interaktif untuk memantau kesejahteraan emosional.
+Smart History Sidebar: Pengorganisasian riwayat jurnal yang rapi (Hari Ini, Kemarin, 7 Hari Terakhir) dengan fitur rename dan delete.
+Responsive UI: Tampilan yang dioptimalkan untuk perangkat mobile maupun desktop dengan dukungan Dark Mode.
+Secure Authentication: Sistem login aman menggunakan Firebase Authentication.
 
-Currently, two official plugins are available:
+🚀 Kenapa MindNest?
+Kadang kita cuma butuh tempat buat ngomong tanpa di-judge. Fitur Sikat Pikiran di sini didesain buat itu. AI-nya bakal ngerespon curhatan kamu biar kamu merasa lebih tenang dan dapat perspektif baru.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+💡 Apa yang beda dari yang lain?
+Banyak aplikasi jurnal atau chatbot di luar sana, tapi MindNest punya pendekatan yang beda:
+Bukan Sekadar Chatbot: Di saat AI lain cuma jawab pertanyaan, MindNest difokuskan buat Reflective Journaling. AI di sini bertindak sebagai pendengar yang validasi perasaan kamu, bukan cuma kasih jawaban kaku.
+Automation-Driven (n8n): Arsitektur kita unik karena pakai n8n sebagai orkestrator. Ini bikin proses data lebih transparan dan fleksibel dibanding aplikasi yang langsung "tembak" API ke AI.
+Visualisasi Mood yang Real-time: Kita gak cuma simpan teks, tapi juga bantu kamu liat pola emosi lewat dashboard yang simpel dan gampang dipahami, jadi kamu tau kapan waktu tersulit atau terbaik kamu dalam seminggu.
+Privasi yang Terkontrol: Dengan Firebase Auth, semua curhatan kamu aman dan cuma kamu yang bisa akses riwayatnya. Kamu punya kontrol penuh buat hapus atau ubah judul jurnalmu kapan aja.
 
-## React Compiler
+🛠️ Stack yang Dipakai
+React + Vite: Biar kenceng pas di-build.
+Tailwind CSS: Buat UI yang clean dan modern.
+Firebase: Handle login user sama database.
+n8n Workflow: Engine utamanya buat hubungin frontend ke AI.
+Google Gemini: Otak AI-nya.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+⚙️ Cara Setup (Lokal)
+Clone & Install:
+git clone https://github.com/usernamemu/mindnest-ai.git
+npm install
 
-## Expanding the ESLint configuration
+Environment Variable:
+Bikin file .env terus isi API key kamu (Firebase, n8n webhook, dsb).
+Run:
+npm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🧠 Alur Kerjanya (How it works)
+Gak cuma frontend doang, aplikasinya pake n8n buat jembatan:
+-User kirim curhatan ke Webhook n8n.
+-n8n lempar datanya ke Gemini-1.5-preview buat diproses.
+-Responnya dikirim balik ke chat bubble user.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Note: Proyek ini masih pake Free Tier buat API-nya, jadi kalau responnya agak lambat atau kena limit, itu karena emang lagi di kuota gratisan.
