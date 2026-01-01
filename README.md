@@ -35,7 +35,7 @@ Google Gemini: Otak AI-nya.
 
 ⚙️ Cara Setup (Lokal)
 Clone & Install:
-git clone https://github.com/usernamemu/mindnest-ai.git
+git clone https://github.com/Sudartodenky/MindNest_AI.git
 npm install
 
 Environment Variable:
