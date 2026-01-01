@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import LogoWhite from "../assets/logo/white.png";
 import { useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -166,8 +167,13 @@ export function AuthPage() {
       >
         {/* Header */}
         <div className="text-center mb-6">
-          <div className="w-14 h-14 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <Brain className="w-8 h-8 text-white" />
+          {/* Mengganti Brain Icon dengan Logo Image */}
+          <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg overflow-hidden">
+            <img
+              src={LogoWhite}
+              alt="MindNest Logo"
+              className="w-10 h-10 object-contain"
+            />
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">
             MindNest AI
