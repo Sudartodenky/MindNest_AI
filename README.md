@@ -1,6 +1,7 @@
 
 <img width="658" height="379" alt="image-removebg-preview (67)" src="https://github.com/user-attachments/assets/5ff6ee92-fe62-41ba-ba94-0139a90f0e1d" />
 
+Link Akses Langsung -> https://mindnestai-phi.vercel.app/
 
 🌿 MindNest AI - Sikat Pikiran
 
