@@ -60,7 +60,7 @@ Clone & Install:
 
 Environment Variable:
 
--Bikin file .env terus isi API key kamu (Firebase, n8n webhook, dsb).
+-Untuk file .env.localnya saya berikan didalam folder zipnya.
 
 Run:
 
