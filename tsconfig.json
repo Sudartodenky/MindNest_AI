@@ -1,20 +1,25 @@
 {
   "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx", // <-- Ini yang paling penting untuk memperbaiki error JSX
+    "sourceMap": true,
     "outDir": "lib",
     "rootDir": "src",
-
-    "target": "es2020",
-    "module": "commonjs",
-    "moduleResolution": "node",
-
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
-
-    "types": ["node"],
-    "typeRoots": ["./node_modules/@types"]
+    "types": ["node"]
   },
   "include": ["src"],
-  "exclude": ["../node_modules"]
+  "exclude": ["node_modules"]
 }
