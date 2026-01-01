@@ -1,21 +1,20 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/react-swc'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   plugins: [
     react(),
-    VitePWA({ 
+    VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'Mi-192.png', 'Mi-512.png'],
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
         name: 'MindNest AI - Health Companion',
         short_name: 'MindNest',
-        description: 'Your AI Mental Health Companion',
-        start_url: '/',
-        display: 'standalone',
-        background_color: '#ffffff',
+        description: 'Teman kesehatan mental AI kamu',
         theme_color: '#8b5cf6',
+        background_color: '#ffffff',
+        display: 'standalone',
         icons: [
           {
             src: 'Mi-192.png',
