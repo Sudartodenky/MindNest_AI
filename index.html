@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/Mi-192.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>MindNest</title>
+
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#8b5cf6" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link rel="apple-touch-icon" href="/Mi-192.png" />
+
+    <script>
+      // 1. Dark Mode Logic (Anti-Flash)
+      const theme = localStorage.getItem("theme");
+      if (
+        theme === "dark" ||
+        (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      }
+
+      // 2. PWA Auto-Prompt Logic
+      window.deferredPrompt = null;
+      window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        window.deferredPrompt = e;
+
+        // Munculkan tawaran otomatis setelah 3 detik jika di HP
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isMobile) {
+          setTimeout(() => {
+            if (window.deferredPrompt) {
+              const ask = confirm(
+                "Instal MindNest di HP kamu agar akses lebih cepat & ringan?"
+              );
+              if (ask) {
+                window.deferredPrompt.prompt();
+                window.deferredPrompt.userChoice.finally(() => {
+                  window.deferredPrompt = null;
+                });
+              }
+            }
+          }, 3000);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
